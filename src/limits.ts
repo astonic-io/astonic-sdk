@@ -5,7 +5,7 @@ import {
   TradingLimitsState,
 } from './interfaces'
 
-import { Broker } from '@mento-protocol/mento-core-ts'
+import { Broker } from '@astonic-io/astonic-bindings-ts'
 import { strict as assert } from 'assert'
 import { utils } from 'ethers'
 

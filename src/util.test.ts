@@ -62,7 +62,7 @@ describe('Utils', () => {
 
   describe('getSymbolFromTokenAddress', () => {
     it('should return the symbol of the erc20 contract address', async () => {
-      const fakecUsdAddress = '0xcUSDAddress'
+      const fakecUsdAddress = '0xaUSDAddress'
       symbol.mockReturnValueOnce('fakeSymbol')
 
       expect(await getSymbolFromTokenAddress(fakecUsdAddress, provider)).toBe(
@@ -97,9 +97,9 @@ describe('Utils', () => {
     it('should return the chain ID from a signer or provider', async () => {
       provider.getNetwork = jest
         .fn()
-        .mockResolvedValue({ chainId: 42220, name: 'celo' })
+        .mockResolvedValue({ chainId: 7070, name: 'planq' })
       const chainId = await getChainId(provider)
-      expect(chainId).toBe(42220)
+      expect(chainId).toBe(7070)
     })
   })
 })

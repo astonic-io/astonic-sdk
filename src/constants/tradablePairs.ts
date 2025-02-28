@@ -1,18 +1,18 @@
 // THIS FILE IS AUTO-GENERATED. DO NOT EDIT DIRECTLY.
-import { TradablePair } from '../mento'
+import { TradablePair } from '../astonic'
 
 export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
-  '42220': [
+  '7070': [
     {
-      id: 'CELO-cUSD',
+      id: 'PLQ-aUSD',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -27,15 +27,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cEUR',
+      id: 'PLQ-aEUR',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -50,11 +50,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cREAL',
+      id: 'PLQ-cREAL',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787',
@@ -96,7 +96,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'axlUSDC-cEUR',
+      id: 'axlUSDC-aEUR',
       assets: [
         {
           address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
@@ -104,7 +104,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -142,7 +142,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'axlEUROC-cEUR',
+      id: 'axlEUROC-aEUR',
       assets: [
         {
           address: '0x061cc5a2C863E0C1Cb404006D559dB18A34C762d',
@@ -150,7 +150,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -165,11 +165,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-eXOF',
+      id: 'PLQ-eXOF',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x73F93dcc49cB8A239e2032663e9475dd5ef29A08',
@@ -211,15 +211,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cKES-cUSD',
+      id: 'aKES-aUSD',
       assets: [
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -234,7 +234,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDC-cEUR',
+      id: 'USDC-aEUR',
       assets: [
         {
           address: '0xcebA9300f2b948710d2653dD7B07f33A8B32118C',
@@ -242,7 +242,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -257,7 +257,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDC-cUSD',
+      id: 'USDC-aUSD',
       assets: [
         {
           address: '0xcebA9300f2b948710d2653dD7B07f33A8B32118C',
@@ -265,7 +265,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -280,7 +280,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'axlUSDC-cUSD',
+      id: 'axlUSDC-aUSD',
       assets: [
         {
           address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
@@ -288,7 +288,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -303,7 +303,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USD₮-cUSD',
+      id: 'USD₮-aUSD',
       assets: [
         {
           address: '0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e',
@@ -311,7 +311,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -326,7 +326,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'PUSO-cUSD',
+      id: 'PUSO-aUSD',
       assets: [
         {
           address: '0x105d4A9306D2E55a71d2Eb95B81553AE1dC20d7B',
@@ -334,7 +334,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -349,7 +349,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cCOP-cUSD',
+      id: 'cCOP-aUSD',
       assets: [
         {
           address: '0x8A567e2aE79CA692Bd748aB832081C45de4041eA',
@@ -357,7 +357,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -372,7 +372,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cGHS-cUSD',
+      id: 'cGHS-aUSD',
       assets: [
         {
           address: '0xfAeA5F3404bbA20D3cc2f8C4B0A888F55a3c7313',
@@ -380,7 +380,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -395,15 +395,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cKES',
+      id: 'PLQ-aKES',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -426,11 +426,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-USDC',
+      id: 'PLQ-USDC',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xcebA9300f2b948710d2653dD7B07f33A8B32118C',
@@ -457,11 +457,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-axlUSDC',
+      id: 'PLQ-axlUSDC',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
@@ -488,11 +488,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-USD₮',
+      id: 'PLQ-USD₮',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e',
@@ -519,11 +519,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-PUSO',
+      id: 'PLQ-PUSO',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x105d4A9306D2E55a71d2Eb95B81553AE1dC20d7B',
@@ -550,11 +550,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cCOP',
+      id: 'PLQ-cCOP',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x8A567e2aE79CA692Bd748aB832081C45de4041eA',
@@ -581,11 +581,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cGHS',
+      id: 'PLQ-cGHS',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xfAeA5F3404bbA20D3cc2f8C4B0A888F55a3c7313',
@@ -612,11 +612,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-axlEUROC',
+      id: 'PLQ-axlEUROC',
       assets: [
         {
           address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x061cc5a2C863E0C1Cb404006D559dB18A34C762d',
@@ -643,15 +643,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-cUSD',
+      id: 'aEUR-aUSD',
       assets: [
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -674,7 +674,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cREAL-cUSD',
+      id: 'cREAL-aUSD',
       assets: [
         {
           address: '0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787',
@@ -682,7 +682,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -705,11 +705,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cUSD-eXOF',
+      id: 'aUSD-eXOF',
       assets: [
         {
           address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
         {
           address: '0x73F93dcc49cB8A239e2032663e9475dd5ef29A08',
@@ -736,11 +736,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-cREAL',
+      id: 'aEUR-cREAL',
       assets: [
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787',
@@ -767,11 +767,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-eXOF',
+      id: 'aEUR-eXOF',
       assets: [
         {
           address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0x73F93dcc49cB8A239e2032663e9475dd5ef29A08',
@@ -891,7 +891,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDC-cKES',
+      id: 'USDC-aKES',
       assets: [
         {
           address: '0xcebA9300f2b948710d2653dD7B07f33A8B32118C',
@@ -899,7 +899,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1077,7 +1077,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'axlUSDC-cKES',
+      id: 'axlUSDC-aKES',
       assets: [
         {
           address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
@@ -1085,7 +1085,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1232,7 +1232,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USD₮-cKES',
+      id: 'USD₮-aKES',
       assets: [
         {
           address: '0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e',
@@ -1240,7 +1240,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1263,7 +1263,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'PUSO-cKES',
+      id: 'PUSO-aKES',
       assets: [
         {
           address: '0x105d4A9306D2E55a71d2Eb95B81553AE1dC20d7B',
@@ -1271,7 +1271,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1294,7 +1294,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cCOP-cKES',
+      id: 'cCOP-aKES',
       assets: [
         {
           address: '0x8A567e2aE79CA692Bd748aB832081C45de4041eA',
@@ -1302,7 +1302,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1325,7 +1325,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cGHS-cKES',
+      id: 'cGHS-aKES',
       assets: [
         {
           address: '0xfAeA5F3404bbA20D3cc2f8C4B0A888F55a3c7313',
@@ -1333,7 +1333,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x456a3D042C0DbD3db53D5489e98dFb038553B0d0',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1544,15 +1544,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
   ],
   '44787': [
     {
-      id: 'CELO-cUSD',
+      id: 'PLQ-aUSD',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1567,15 +1567,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cEUR',
+      id: 'PLQ-aEUR',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -1590,11 +1590,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cREAL',
+      id: 'PLQ-cREAL',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xE4D517785D091D3c54818832dB6094bcc2744545',
@@ -1636,7 +1636,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-cEUR',
+      id: 'BridgedUSDC-aEUR',
       assets: [
         {
           address: '0x87D61dA3d668797786D73BC674F053f87111570d',
@@ -1644,7 +1644,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -1682,7 +1682,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedEUROC-cEUR',
+      id: 'BridgedEUROC-aEUR',
       assets: [
         {
           address: '0x6e673502c5b55F3169657C004e5797fFE5be6653',
@@ -1690,7 +1690,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -1705,11 +1705,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-eXOF',
+      id: 'PLQ-eXOF',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xB0FA15e002516d0301884059c0aaC0F0C72b019D',
@@ -1751,15 +1751,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cKES-cUSD',
+      id: 'aKES-aUSD',
       assets: [
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1774,7 +1774,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDC-cEUR',
+      id: 'USDC-aEUR',
       assets: [
         {
           address: '0x2F25deB3848C207fc8E0c34035B3Ba7fC157602B',
@@ -1782,7 +1782,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -1797,7 +1797,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDC-cUSD',
+      id: 'USDC-aUSD',
       assets: [
         {
           address: '0x2F25deB3848C207fc8E0c34035B3Ba7fC157602B',
@@ -1805,7 +1805,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1820,7 +1820,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-cUSD',
+      id: 'BridgedUSDC-aUSD',
       assets: [
         {
           address: '0x87D61dA3d668797786D73BC674F053f87111570d',
@@ -1828,7 +1828,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1843,7 +1843,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDT-cUSD',
+      id: 'USDT-aUSD',
       assets: [
         {
           address: '0xBba91F588d031469ABCCA566FE80fB1Ad8Ee3287',
@@ -1851,7 +1851,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1866,7 +1866,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'PUSO-cUSD',
+      id: 'PUSO-aUSD',
       assets: [
         {
           address: '0x5E0E3c9419C42a1B04e2525991FB1A2C467AB8bF',
@@ -1874,7 +1874,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1889,7 +1889,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cCOP-cUSD',
+      id: 'cCOP-aUSD',
       assets: [
         {
           address: '0xe6A57340f0df6E020c1c0a80bC6E13048601f0d4',
@@ -1897,7 +1897,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1912,7 +1912,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cGHS-cUSD',
+      id: 'cGHS-aUSD',
       assets: [
         {
           address: '0x295B66bE7714458Af45E6A6Ea142A5358A6cA375',
@@ -1920,7 +1920,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -1935,15 +1935,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cKES',
+      id: 'PLQ-aKES',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -1966,11 +1966,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-USDC',
+      id: 'PLQ-USDC',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x2F25deB3848C207fc8E0c34035B3Ba7fC157602B',
@@ -1997,7 +1997,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-CELO',
+      id: 'BridgedUSDC-PLQ',
       assets: [
         {
           address: '0x87D61dA3d668797786D73BC674F053f87111570d',
@@ -2005,7 +2005,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
       ],
       path: [
@@ -2028,11 +2028,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-USDT',
+      id: 'PLQ-USDT',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xBba91F588d031469ABCCA566FE80fB1Ad8Ee3287',
@@ -2059,11 +2059,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-PUSO',
+      id: 'PLQ-PUSO',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x5E0E3c9419C42a1B04e2525991FB1A2C467AB8bF',
@@ -2090,11 +2090,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cCOP',
+      id: 'PLQ-cCOP',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xe6A57340f0df6E020c1c0a80bC6E13048601f0d4',
@@ -2121,11 +2121,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cGHS',
+      id: 'PLQ-cGHS',
       assets: [
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x295B66bE7714458Af45E6A6Ea142A5358A6cA375',
@@ -2152,7 +2152,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedEUROC-CELO',
+      id: 'BridgedEUROC-PLQ',
       assets: [
         {
           address: '0x6e673502c5b55F3169657C004e5797fFE5be6653',
@@ -2160,7 +2160,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
       ],
       path: [
@@ -2183,15 +2183,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-cUSD',
+      id: 'aEUR-aUSD',
       assets: [
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -2214,7 +2214,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cREAL-cUSD',
+      id: 'cREAL-aUSD',
       assets: [
         {
           address: '0xE4D517785D091D3c54818832dB6094bcc2744545',
@@ -2222,7 +2222,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -2245,11 +2245,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cUSD-eXOF',
+      id: 'aUSD-eXOF',
       assets: [
         {
           address: '0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
         {
           address: '0xB0FA15e002516d0301884059c0aaC0F0C72b019D',
@@ -2276,11 +2276,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-cREAL',
+      id: 'aEUR-cREAL',
       assets: [
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0xE4D517785D091D3c54818832dB6094bcc2744545',
@@ -2307,11 +2307,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-eXOF',
+      id: 'aEUR-eXOF',
       assets: [
         {
           address: '0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0xB0FA15e002516d0301884059c0aaC0F0C72b019D',
@@ -2431,7 +2431,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDC-cKES',
+      id: 'USDC-aKES',
       assets: [
         {
           address: '0x2F25deB3848C207fc8E0c34035B3Ba7fC157602B',
@@ -2439,7 +2439,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -2617,7 +2617,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-cKES',
+      id: 'BridgedUSDC-aKES',
       assets: [
         {
           address: '0x87D61dA3d668797786D73BC674F053f87111570d',
@@ -2625,7 +2625,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -2772,7 +2772,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDT-cKES',
+      id: 'USDT-aKES',
       assets: [
         {
           address: '0xBba91F588d031469ABCCA566FE80fB1Ad8Ee3287',
@@ -2780,7 +2780,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -2803,7 +2803,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'PUSO-cKES',
+      id: 'PUSO-aKES',
       assets: [
         {
           address: '0x5E0E3c9419C42a1B04e2525991FB1A2C467AB8bF',
@@ -2811,7 +2811,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -2834,7 +2834,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cCOP-cKES',
+      id: 'cCOP-aKES',
       assets: [
         {
           address: '0xe6A57340f0df6E020c1c0a80bC6E13048601f0d4',
@@ -2842,7 +2842,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -2865,7 +2865,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cGHS-cKES',
+      id: 'cGHS-aKES',
       assets: [
         {
           address: '0x295B66bE7714458Af45E6A6Ea142A5358A6cA375',
@@ -2873,7 +2873,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x1E0433C1769271ECcF4CFF9FDdD515eefE6CdF92',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -3084,15 +3084,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
   ],
   '62320': [
     {
-      id: 'CELO-cUSD',
+      id: 'PLQ-aUSD',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -3107,15 +3107,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cEUR',
+      id: 'PLQ-aEUR',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -3130,11 +3130,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cREAL',
+      id: 'PLQ-cREAL',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x6a0EEf2bed4C30Dc2CB42fe6c5f01F80f7EF16d1',
@@ -3176,7 +3176,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-cEUR',
+      id: 'BridgedUSDC-aEUR',
       assets: [
         {
           address: '0xD4079B322c392D6b196f90AA4c439fC2C16d6770',
@@ -3184,7 +3184,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -3222,7 +3222,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedEUROC-cEUR',
+      id: 'BridgedEUROC-aEUR',
       assets: [
         {
           address: '0x6f90ac394b1F45290d3023e4Ba0203005cAF2A4B',
@@ -3230,7 +3230,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
       ],
       path: [
@@ -3245,11 +3245,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-eXOF',
+      id: 'PLQ-eXOF',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x64c1D812673E93Bc036AdC3D547d9950696DA5Af',
@@ -3291,15 +3291,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cKES-cUSD',
+      id: 'aKES-aUSD',
       assets: [
         {
           address: '0x8813Ae180017057d0Cf98C930cED1E7101B97370',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -3314,11 +3314,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-mockNativeUSDC',
+      id: 'aEUR-mockNativeUSDC',
       assets: [
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0xB407D37d76c417B6343310D42611FCA106B2abB8',
@@ -3337,11 +3337,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cUSD-mockNativeUSDC',
+      id: 'aUSD-mockNativeUSDC',
       assets: [
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
         {
           address: '0xB407D37d76c417B6343310D42611FCA106B2abB8',
@@ -3360,7 +3360,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-cUSD',
+      id: 'BridgedUSDC-aUSD',
       assets: [
         {
           address: '0xD4079B322c392D6b196f90AA4c439fC2C16d6770',
@@ -3368,7 +3368,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -3383,7 +3383,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDT-cUSD',
+      id: 'USDT-aUSD',
       assets: [
         {
           address: '0x27c586469038A1749B27BF5914DAff7A14227AfB',
@@ -3391,7 +3391,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -3406,15 +3406,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-cKES',
+      id: 'PLQ-aKES',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x8813Ae180017057d0Cf98C930cED1E7101B97370',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -3437,11 +3437,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-mockNativeUSDC',
+      id: 'PLQ-mockNativeUSDC',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0xB407D37d76c417B6343310D42611FCA106B2abB8',
@@ -3468,7 +3468,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-CELO',
+      id: 'BridgedUSDC-PLQ',
       assets: [
         {
           address: '0xD4079B322c392D6b196f90AA4c439fC2C16d6770',
@@ -3476,7 +3476,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
       ],
       path: [
@@ -3499,11 +3499,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'CELO-USDT',
+      id: 'PLQ-USDT',
       assets: [
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
         {
           address: '0x27c586469038A1749B27BF5914DAff7A14227AfB',
@@ -3530,7 +3530,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedEUROC-CELO',
+      id: 'BridgedEUROC-PLQ',
       assets: [
         {
           address: '0x6f90ac394b1F45290d3023e4Ba0203005cAF2A4B',
@@ -3538,7 +3538,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0xdDc9bE57f553fe75752D61606B94CBD7e0264eF8',
-          symbol: 'CELO',
+          symbol: 'PLQ',
         },
       ],
       path: [
@@ -3561,15 +3561,15 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-cUSD',
+      id: 'aEUR-aUSD',
       assets: [
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -3592,7 +3592,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cREAL-cUSD',
+      id: 'cREAL-aUSD',
       assets: [
         {
           address: '0x6a0EEf2bed4C30Dc2CB42fe6c5f01F80f7EF16d1',
@@ -3600,7 +3600,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
       ],
       path: [
@@ -3623,11 +3623,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cUSD-eXOF',
+      id: 'aUSD-eXOF',
       assets: [
         {
           address: '0x62492A644A588FD904270BeD06ad52B9abfEA1aE',
-          symbol: 'cUSD',
+          symbol: 'aUSD',
         },
         {
           address: '0x64c1D812673E93Bc036AdC3D547d9950696DA5Af',
@@ -3654,11 +3654,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-cREAL',
+      id: 'aEUR-cREAL',
       assets: [
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0x6a0EEf2bed4C30Dc2CB42fe6c5f01F80f7EF16d1',
@@ -3685,11 +3685,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cEUR-eXOF',
+      id: 'aEUR-eXOF',
       assets: [
         {
           address: '0xf9ecE301247aD2CE21894941830A2470f4E774ca',
-          symbol: 'cEUR',
+          symbol: 'aEUR',
         },
         {
           address: '0x64c1D812673E93Bc036AdC3D547d9950696DA5Af',
@@ -3809,11 +3809,11 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'cKES-mockNativeUSDC',
+      id: 'aKES-mockNativeUSDC',
       assets: [
         {
           address: '0x8813Ae180017057d0Cf98C930cED1E7101B97370',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
         {
           address: '0xB407D37d76c417B6343310D42611FCA106B2abB8',
@@ -3902,7 +3902,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'BridgedUSDC-cKES',
+      id: 'BridgedUSDC-aKES',
       assets: [
         {
           address: '0xD4079B322c392D6b196f90AA4c439fC2C16d6770',
@@ -3910,7 +3910,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x8813Ae180017057d0Cf98C930cED1E7101B97370',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [
@@ -3964,7 +3964,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
       ],
     },
     {
-      id: 'USDT-cKES',
+      id: 'USDT-aKES',
       assets: [
         {
           address: '0x27c586469038A1749B27BF5914DAff7A14227AfB',
@@ -3972,7 +3972,7 @@ export const TRADABLE_PAIRS: Record<number, TradablePair[]> = {
         },
         {
           address: '0x8813Ae180017057d0Cf98C930cED1E7101B97370',
-          symbol: 'cKES',
+          symbol: 'aKES',
         },
       ],
       path: [

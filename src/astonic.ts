@@ -1,12 +1,12 @@
 import {
   BiPoolManager__factory,
   Broker__factory,
-  IBreakerBox__factory,
-  IBroker,
-  IBroker__factory,
-  IExchangeProvider,
-  IExchangeProvider__factory,
-} from '@mento-protocol/mento-core-ts'
+  IBreakerBox0828__factory,
+  IBroker0828,
+  IBroker0828__factory,
+  IExchangeProvider0828,
+  IExchangeProvider0828__factory,
+} from '@astonic-io/astonic-bindings-ts'
 import { BigNumber, BigNumberish, Signer, providers } from 'ethers'
 import {
   Address,
@@ -25,7 +25,7 @@ import {
 } from './utils'
 
 import { strict as assert } from 'assert'
-import { IMentoRouter, IMentoRouter__factory } from 'mento-router-ts'
+import { IAstonicRouter, IAstonicRouter__factory } from '@astonic-io/astonic-router-ts'
 import { getAddress } from './constants/addresses'
 import { getCachedTradablePairs } from './constants/tradablePairs'
 
@@ -50,15 +50,15 @@ export interface TradablePair {
   }>
 }
 
-export class Mento {
+export class Astonic {
   private readonly signerOrProvider: Signer | providers.Provider
-  private readonly broker: IBroker
-  private readonly router: IMentoRouter
+  private readonly broker: IBroker0828
+  private readonly router: IAstonicRouter
   private exchanges: Exchange[]
 
   /**
    * This constructor is private, use the static create or createWithParams methods
-   * to create a new Mento instance
+   * to create a new Astonic instance
    * @param signerOrProvider an ethers provider or connected signer
    * @param brokerAddress the address of the broker contract
    * @param exchanges exchange data for the broker
@@ -70,33 +70,33 @@ export class Mento {
     exchanges?: Exchange[]
   ) {
     this.signerOrProvider = signerOrProvider
-    this.broker = IBroker__factory.connect(brokerAddress, signerOrProvider)
-    this.router = IMentoRouter__factory.connect(routerAddress, signerOrProvider)
+    this.broker = IBroker0828__factory.connect(brokerAddress, signerOrProvider)
+    this.router = IAstonicRouter__factory.connect(routerAddress, signerOrProvider)
     this.exchanges = exchanges || []
   }
 
   /**
-   * Creates a new Mento object instance.
+   * Creates a new Astonic object instance.
    * When constructed with only a Provider only read-only operations are supported
    * @param signerOrProvider an ethers signer or provider. A signer is required to execute swaps
-   * @returns a new Mento object instance
+   * @returns a new Astonic object instance
    */
   static async create(signerOrProvider: Signer | providers.Provider) {
     validateSignerOrProvider(signerOrProvider)
-    return new Mento(
+    return new Astonic(
       signerOrProvider,
       await getBrokerAddressFromRegistry(signerOrProvider),
-      await getAddress('MentoRouter', await getChainId(signerOrProvider))
+      await getAddress('AstonicRouter', await getChainId(signerOrProvider))
     )
   }
 
   /**
-   * Create a new Mento object instance given a broker address and optional exchanges data
+   * Create a new Astonic object instance given a broker address and optional exchanges data
    * When constructed with a Provider, only read-only operations are supported
    * @param signerOrProvider an ethers signer or provider. A signer is required to execute swaps
    * @param brokerAddr the address of the broker contract
    * @param exchanges the exchanges data for the broker
-   * @returns a new Mento object instance
+   * @returns a new Astonic object instance
    */
   static createWithParams(
     signerOrProvider: Signer | providers.Provider,
@@ -105,17 +105,17 @@ export class Mento {
     exchanges?: Exchange[]
   ) {
     validateSignerOrProvider(signerOrProvider)
-    return new Mento(signerOrProvider, brokerAddr, routerAddr, exchanges)
+    return new Astonic(signerOrProvider, brokerAddr, routerAddr, exchanges)
   }
 
   /**
-   * Returns a new Mento instance connected to the given signer
+   * Returns a new Astonic instance connected to the given signer
    * @param signer an ethers signer
-   * @returns new Mento object instance
+   * @returns new Astonic object instance
    */
   connectSigner(signer: Signer) {
     validateSigner(signer)
-    return new Mento(
+    return new Astonic(
       signer,
       this.broker.address,
       this.router.address,
@@ -136,7 +136,7 @@ export class Mento {
   }
 
   /**
-   * Returns a list of all tradable pairs on Mento via direct exchanges.
+   * Returns a list of all tradable pairs on Astonic via direct exchanges.
    * Each pair is represented using the TradablePair interface, with its id
    * (a concatenation of the two asset symbols in alphabetical order),
    * the two Asset objects, and a path (an array with a single direct exchange hop).
@@ -187,7 +187,7 @@ export class Mento {
   }
 
   /**
-   * Returns a list of all tradable pairs on Mento, including those achievable
+   * Returns a list of all tradable pairs on Astonic, including those achievable
    * via two-hop routes. For two-hop pairs, the path will contain two exchange hops.
    * Each TradablePair contains an id (the concatenation of the two asset symbols in alphabetical order),
    * the two Asset objects, and an array of exchange details for each hop.
@@ -287,7 +287,7 @@ export class Mento {
   /**
    * Returns the amount of tokenIn to be sold to buy amountOut of tokenOut.
    * If the provided tradablePair has a single (direct) pricing path, then direct pricing is used.
-   * Otherwise, routed pricing via the MentoRouter is applied.
+   * Otherwise, routed pricing via the AstonicRouter is applied.
    * @param tokenIn the token to be sold
    * @param tokenOut the token to be bought
    * @param amountOut the desired amount of tokenOut to be obtained
@@ -313,7 +313,7 @@ export class Mento {
   /**
    * Returns the amount of tokenOut to be bought by selling amountIn of tokenIn.
    * If the provided tradablePair has a single (direct) pricing path, then direct pricing is used.
-   * Otherwise, routed pricing via the MentoRouter is applied.
+   * Otherwise, routed pricing via the AstonicRouter is applied.
    * @param tokenIn the token to be sold
    * @param tokenOut the token to be bought
    * @param amountIn the amount of tokenIn to be sold
@@ -375,7 +375,7 @@ export class Mento {
   }
 
   /**
-   * Internal method for routed pricing: uses the MentoRouter to determine the required tokenIn
+   * Internal method for routed pricing: uses the AstonicRouter to determine the required tokenIn
    * for obtaining amountOut through a multi-hop route specified in tradablePair.path.
    */
   private async getAmountInRouted(
@@ -389,7 +389,7 @@ export class Mento {
   }
 
   /**
-   * Internal method for routed pricing: uses the MentoRouter to determine the amountOut
+   * Internal method for routed pricing: uses the AstonicRouter to determine the amountOut
    * obtainable by selling amountIn through a multi-hop route specified in tradablePair.path.
    */
   private async getAmountOutRouted(
@@ -620,10 +620,10 @@ export class Mento {
   }
 
   /**
-   * Returns the mento instance's broker contract
+   * Returns the astonic instance's broker contract
    * @returns broker contract
    */
-  getBroker(): IBroker {
+  getBroker(): IBroker0828 {
     return this.broker
   }
 
@@ -662,7 +662,7 @@ export class Mento {
   }
 
   /**
-   * Returns the list of exchanges available in Mento (cached)
+   * Returns the list of exchanges available in Astonic (cached)
    * @returns the list of exchanges
    */
   async getExchanges(): Promise<Exchange[]> {
@@ -689,8 +689,8 @@ export class Mento {
   async getExchangesForProvider(
     exchangeProviderAddr: Address
   ): Promise<Exchange[]> {
-    const exchangeProvider: IExchangeProvider =
-      IExchangeProvider__factory.connect(
+    const exchangeProvider: IExchangeProvider0828 =
+      IExchangeProvider0828__factory.connect(
         exchangeProviderAddr,
         this.signerOrProvider
       )
@@ -706,7 +706,7 @@ export class Mento {
   }
 
   /**
-   * Returns the Mento exchange (if any) for a given pair of tokens
+   * Returns the Astonic exchange (if any) for a given pair of tokens
    * @param token0 the address of the first token
    * @param token1 the address of the second token
    * @returns exchange
@@ -731,7 +731,7 @@ export class Mento {
   }
 
   /**
-   * Returns the Mento exchange for a given exchange id
+   * Returns the Astonic exchange for a given exchange id
    * @param exchangeId the id of the exchange
    * @returns the exchange with the given id
    */
@@ -769,7 +769,7 @@ export class Mento {
       biPoolManager.getPoolExchange(exchangeId),
     ])
 
-    const breakerBox = IBreakerBox__factory.connect(
+    const breakerBox = IBreakerBox0828__factory.connect(
       breakerBoxAddr,
       this.signerOrProvider
     )

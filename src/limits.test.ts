@@ -5,10 +5,10 @@ import {
   getLimitsState,
 } from './limits'
 
-import { Broker__factory } from '@mento-protocol/mento-core-ts'
+import { Broker__factory } from '@astonic-io/astonic-bindings-ts'
 import { providers } from 'ethers'
 
-jest.mock('@mento-protocol/mento-core-ts', () => {
+jest.mock('@astonic-io/astonic-bindings-ts', () => {
   return {
     Broker__factory: {
       connect: jest.fn(),
@@ -274,27 +274,27 @@ describe('Limits', () => {
 
   describe('getLimitId', () => {
     it('should return the correct limit id for the given exchange and token', async () => {
-      const cUsdCeloExchangeId =
+      const cUsdPlanqExchangeId =
         '0x3135b662c38265d0655177091f1b647b4fef511103d06c016efdf18b46930d2c'
       const cUsdAddr = '0x62492A644A588FD904270BeD06ad52B9abfEA1aE'
 
-      expect(getLimitId(cUsdCeloExchangeId, cUsdAddr)).toEqual(
+      expect(getLimitId(cUsdPlanqExchangeId, cUsdAddr)).toEqual(
         '0x3135b662c38265d0655177097d524e1f05b7dec807f767ec6850a332ed6dac82'
       )
 
-      const cEurCeloExchangeId =
+      const cEurPlanqExchangeId =
         '0xb73ffc6b5123de3c8e460490543ab93a3be7d70824f1666343df49e219199b8c'
       const cEurAddr = '0xf9ecE301247aD2CE21894941830A2470f4E774ca'
 
-      expect(getLimitId(cEurCeloExchangeId, cEurAddr)).toEqual(
+      expect(getLimitId(cEurPlanqExchangeId, cEurAddr)).toEqual(
         '0xb73ffc6b5123de3c8e460490add65a3b1f9d05c605782f22c0d56d92edfeef46'
       )
 
-      const cRealCeloExchangeId =
+      const cRealPlanqExchangeId =
         '0xed0528e42b9ecae538aab34b93813e08de03f8ac4a894b277ef193e67275bbae'
       const cRealAddr = '0x6a0EEf2bed4C30Dc2CB42fe6c5f01F80f7EF16d1'
 
-      expect(getLimitId(cRealCeloExchangeId, cRealAddr)).toEqual(
+      expect(getLimitId(cRealPlanqExchangeId, cRealAddr)).toEqual(
         '0xed0528e42b9ecae538aab34bf98fd123334fc870663d64c1bb018c66859aad7f'
       )
     })

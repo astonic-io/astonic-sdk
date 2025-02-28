@@ -1,17 +1,17 @@
 {
-  "name": "@mento-protocol/mento-sdk",
-  "description": "Official SDK for interacting with the Mento Protocol",
+  "name": "@astonic-io/astonic-sdk",
+  "description": "Official SDK for interacting with the Astonic Protocol",
   "version": "1.0.3",
   "license": "MIT",
-  "author": "Mento Labs",
+  "author": "astonic-io",
   "keywords": [
-    "mento",
-    "celo",
+    "astonic",
+    "planq",
     "solidity"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mento-protocol/mento-sdk.git"
+    "url": "https://github.com/astonic-io/astonic-sdk.git"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -78,8 +78,8 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@mento-protocol/mento-core-ts": "^0.2.0",
-    "mento-router-ts": "^0.2.0"
+    "@astonic-io/astonic-bindings-ts": "^0.2.5",
+    "@astonic-io/astonic-router-ts": "^0.2.0"
   },
   "peerDependencies": {
     "ethers": "^5.7"

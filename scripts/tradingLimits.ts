@@ -1,18 +1,18 @@
-import { Mento } from '../src/mento'
+import { Astonic } from '../src/astonic'
 import { providers } from 'ethers'
 
 async function main() {
   const provider = new providers.JsonRpcProvider(
-    'https://baklava-forno.celo-testnet.org'
+    'https://evm-atlas.planq.network'
   )
-  const mento = await Mento.create(provider)
+  const astonic = await Astonic.create(provider)
 
-  const cUSDCeloExchange =
+  const aUSDPlanqExchange =
     '0x3135b662c38265d0655177091f1b647b4fef511103d06c016efdf18b46930d2c'
 
-  const cfgs = await mento.getTradingLimitConfig(cUSDCeloExchange)
-  const state = await mento.getTradingLimitState(cUSDCeloExchange)
-  const limits = await mento.getTradingLimits(cUSDCeloExchange)
+  const cfgs = await astonic.getTradingLimitConfig(aUSDPlanqExchange)
+  const state = await astonic.getTradingLimitState(aUSDPlanqExchange)
+  const limits = await astonic.getTradingLimits(aUSDPlanqExchange)
 
   console.log('cfgs', cfgs)
   console.log('state', state)

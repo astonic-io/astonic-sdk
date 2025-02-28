@@ -1,8 +1,8 @@
 import { BigNumberish, Signer, providers } from 'ethers'
 import {
-  MentoGovernor,
-  MentoGovernor__factory,
-} from '@mento-protocol/mento-core-ts'
+  AstonicGovernor,
+  AstonicGovernor__factory,
+} from '@astonic-io/astonic-bindings-ts'
 import { ChainClient } from './ChainClient'
 import { TestChainClient } from './TestChainClient'
 import { ProposalState } from './enums'
@@ -26,10 +26,10 @@ export class Governance {
   }
 
   /**
-   * This function retrieves the MentoGovernor contract.
-   * @returns The MentoGovernor contract.
+   * This function retrieves the AstonicGovernor contract.
+   * @returns The AstonicGovernor contract.
    */
-  public async getGovernorContract(): Promise<MentoGovernor> {
+  public async getGovernorContract(): Promise<AstonicGovernor> {
     const chainId = await this.chainClient.getChainId()
 
     const contracts = addresses[chainId]
@@ -39,16 +39,16 @@ export class Governance {
       )
     }
 
-    const mentoGovernorAddress = contracts.MentoGovernor
+    const astonicGovernorAddress = contracts.AstonicGovernor
 
-    return MentoGovernor__factory.connect(
-      mentoGovernorAddress,
+    return AstonicGovernor__factory.connect(
+      astonicGovernorAddress,
       await this.chainClient.getSigner()
     )
   }
 
   /**
-   * Generates a transaction that submits a proposal to be created to the Mento Governor contract using the specified values.
+   * Generates a transaction that submits a proposal to be created to the Astonic Governor contract using the specified values.
    * @param targets The addresses of the contracts to be called during proposal execution.
    * @param values The values to be passed to the calls to the target contracts.
    * @param calldatas The calldata to be passed to the calls to the target contracts.
@@ -102,7 +102,7 @@ export class Governance {
   }
 
   /**
-   * Submits a vote to the Mento Governor contract for the specified proposal.
+   * Submits a vote to the Astonic Governor contract for the specified proposal.
    * @param proposalId The id of the proposal to vote on.
    * @param support Whether or not to support the proposal.
    * @returns The transaction request.

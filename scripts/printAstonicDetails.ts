@@ -1,18 +1,18 @@
 import { providers } from 'ethers'
-import { Mento } from '../src/mento'
+import { Astonic } from '../src/astonic'
 
 async function main() {
   const provider = new providers.JsonRpcProvider(
-    'https://baklava-forno.celo-testnet.org'
+    'https://evm-atlas.planq.network'
   )
-  const mento = await Mento.create(provider)
-  const broker = mento.getBroker()
+  const astonic = await Astonic.create(provider)
+  const broker = astonic.getBroker()
   console.log('Broker:\n================')
   console.log(broker.address, '\n')
   const exchangeProviders = await broker.getExchangeProviders()
   console.log('Exchange Providers:\n================')
   console.log(exchangeProviders, '\n')
-  const exchanges = await mento.getExchanges()
+  const exchanges = await astonic.getExchanges()
   console.log('Exchanges:\n================')
   console.log(exchanges, '\n')
 }

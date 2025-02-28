@@ -52,21 +52,21 @@ export function validateSignerOrProvider(
 }
 
 /**
- * Returns the broker address from the Celo registry
+ * Returns the broker address from the Planq registry
  * @param signerOrProvider an ethers provider or signer
  * @returns the broker address
  */
 export async function getBrokerAddressFromRegistry(
   signerOrProvider: Signer | providers.Provider
 ): Promise<Address> {
-  const celoRegistryAddress = '0x000000000000000000000000000000000000ce10'
+  const planqRegistryAddress = '0x000000000000000000000000000000000000ce10'
   const brokerIdentifier = 'Broker'
 
   const registryAbi = [
     'function getAddressForString(string calldata identifier) external view returns (address)',
   ]
   const contract = new Contract(
-    celoRegistryAddress,
+    planqRegistryAddress,
     registryAbi,
     signerOrProvider
   )

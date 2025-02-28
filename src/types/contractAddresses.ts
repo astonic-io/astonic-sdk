@@ -2,11 +2,11 @@ export type ContractAddresses = {
   GovernanceFactory: string
   Airgrab: string
   Emission: string
-  MentoGovernor: string
-  MentoToken: string
+  AstonicGovernor: string
+  AstonicToken: string
   TimelockController: string
   Locking: string
-  MentoRouter: string
+  AstonicRouter: string
   Broker: string
   BiPoolManager: string
   BreakerBox: string

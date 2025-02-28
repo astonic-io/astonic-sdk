@@ -1,5 +1,5 @@
 import { BigNumberish, providers } from 'ethers'
-import { MentoGovernor__factory } from '@mento-protocol/mento-core-ts'
+import { AstonicGovernor__factory } from '@astonic-io/astonic-bindings-ts'
 
 import { Governance } from './governance'
 import { TestChainClient } from './TestChainClient'
@@ -11,9 +11,9 @@ jest.mock('./utils', () => {
   }
 })
 
-jest.mock('@mento-protocol/mento-core-ts', () => {
+jest.mock('@astonic-io/astonic-bindings-ts', () => {
   return {
-    MentoGovernor__factory: jest.fn(),
+    AstonicGovernor__factory: jest.fn(),
   }
 })
 
@@ -21,8 +21,8 @@ describe('Governance', () => {
   let testee: Governance
   let mockChainClient: TestChainClient
 
-  const mockMentoGovernor = {
-    address: 'fakeMentoGovernorAddress',
+  const mockAstonicGovernor = {
+    address: 'fakeAstonicGovernorAddress',
     populateTransaction: {
       'propose(address[],uint256[],bytes[],string)': jest.fn(),
       'queue(uint256)': jest.fn(),
@@ -39,7 +39,7 @@ describe('Governance', () => {
     },
   }
   // @ts-ignore
-  MentoGovernor__factory.connect = jest.fn().mockReturnValue(mockMentoGovernor)
+  AstonicGovernor__factory.connect = jest.fn().mockReturnValue(mockAstonicGovernor)
 
   beforeEach(async () => {
     mockChainClient = new TestChainClient()
@@ -119,7 +119,7 @@ describe('Governance', () => {
         gasLimit: 2200,
       }
 
-      mockMentoGovernor.populateTransaction[
+      mockAstonicGovernor.populateTransaction[
         'propose(address[],uint256[],bytes[],string)'
       ].mockReturnValue(fakeTxObj)
       const spy = jest
@@ -136,12 +136,12 @@ describe('Governance', () => {
 
       expect(result).toEqual(fakePopulatedTxObj)
       expect(
-        mockMentoGovernor.populateTransaction[
+        mockAstonicGovernor.populateTransaction[
           'propose(address[],uint256[],bytes[],string)'
         ]
       ).toHaveBeenCalledTimes(1)
       expect(
-        mockMentoGovernor.populateTransaction[
+        mockAstonicGovernor.populateTransaction[
           'propose(address[],uint256[],bytes[],string)'
         ]
       ).toHaveBeenCalledWith(targets, values, calldatas, description)
@@ -167,7 +167,7 @@ describe('Governance', () => {
         gasLimit: 2200,
       }
 
-      mockMentoGovernor.populateTransaction['queue(uint256)'].mockReturnValue(
+      mockAstonicGovernor.populateTransaction['queue(uint256)'].mockReturnValue(
         fakeTxObj
       )
       const spy = jest
@@ -179,10 +179,10 @@ describe('Governance', () => {
 
       expect(result).toEqual(fakePopulatedTxObj)
       expect(
-        mockMentoGovernor.populateTransaction['queue(uint256)']
+        mockAstonicGovernor.populateTransaction['queue(uint256)']
       ).toHaveBeenCalledTimes(1)
       expect(
-        mockMentoGovernor.populateTransaction['queue(uint256)']
+        mockAstonicGovernor.populateTransaction['queue(uint256)']
       ).toHaveBeenCalledWith(proposalId)
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith(fakeTxObj)
@@ -206,7 +206,7 @@ describe('Governance', () => {
         gasLimit: 2200,
       }
 
-      mockMentoGovernor.populateTransaction['execute(uint256)'].mockReturnValue(
+      mockAstonicGovernor.populateTransaction['execute(uint256)'].mockReturnValue(
         fakeTxObj
       )
       const spy = jest
@@ -218,10 +218,10 @@ describe('Governance', () => {
 
       expect(result).toEqual(fakePopulatedTxObj)
       expect(
-        mockMentoGovernor.populateTransaction['execute(uint256)']
+        mockAstonicGovernor.populateTransaction['execute(uint256)']
       ).toHaveBeenCalledTimes(1)
       expect(
-        mockMentoGovernor.populateTransaction['execute(uint256)']
+        mockAstonicGovernor.populateTransaction['execute(uint256)']
       ).toHaveBeenCalledWith(proposalId)
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith(fakeTxObj)
@@ -246,7 +246,7 @@ describe('Governance', () => {
         gasLimit: 2200,
       }
 
-      mockMentoGovernor.populateTransaction.castVote.mockReturnValue(fakeTxObj)
+      mockAstonicGovernor.populateTransaction.castVote.mockReturnValue(fakeTxObj)
       const spy = jest
         .spyOn(mockChainClient, 'populateTransaction')
         // @ts-ignore
@@ -256,10 +256,10 @@ describe('Governance', () => {
 
       expect(result).toEqual(fakePopulatedTxObj)
       expect(
-        mockMentoGovernor.populateTransaction.castVote
+        mockAstonicGovernor.populateTransaction.castVote
       ).toHaveBeenCalledTimes(1)
       expect(
-        mockMentoGovernor.populateTransaction.castVote
+        mockAstonicGovernor.populateTransaction.castVote
       ).toHaveBeenCalledWith(proposalId, support)
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith(fakeTxObj)
@@ -283,7 +283,7 @@ describe('Governance', () => {
         gasLimit: 2200,
       }
 
-      mockMentoGovernor.populateTransaction.cancel.mockReturnValue(fakeTxObj)
+      mockAstonicGovernor.populateTransaction.cancel.mockReturnValue(fakeTxObj)
       const spy = jest
         .spyOn(mockChainClient, 'populateTransaction')
         // @ts-ignore
@@ -293,9 +293,9 @@ describe('Governance', () => {
 
       expect(result).toEqual(fakePopulatedTxObj)
       expect(
-        mockMentoGovernor.populateTransaction.cancel
+        mockAstonicGovernor.populateTransaction.cancel
       ).toHaveBeenCalledTimes(1)
-      expect(mockMentoGovernor.populateTransaction.cancel).toHaveBeenCalledWith(
+      expect(mockAstonicGovernor.populateTransaction.cancel).toHaveBeenCalledWith(
         proposalId
       )
       expect(spy).toHaveBeenCalledTimes(1)
@@ -313,13 +313,13 @@ describe('Governance', () => {
       const proposalId = 1
       const fakeProposalState = [1]
 
-      mockMentoGovernor.functions.state.mockReturnValue(fakeProposalState)
+      mockAstonicGovernor.functions.state.mockReturnValue(fakeProposalState)
 
       const result = await testee.getProposalState(proposalId)
 
       expect(result).toEqual(ProposalState[fakeProposalState[0]])
-      expect(mockMentoGovernor.functions.state).toHaveBeenCalledTimes(1)
-      expect(mockMentoGovernor.functions.state).toHaveBeenCalledWith(proposalId)
+      expect(mockAstonicGovernor.functions.state).toHaveBeenCalledTimes(1)
+      expect(mockAstonicGovernor.functions.state).toHaveBeenCalledWith(proposalId)
     })
   })
 })

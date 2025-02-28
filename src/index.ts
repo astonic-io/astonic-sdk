@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-export * from './mento'
+export * from './astonic'
 export * from './governance'
 export * from './utils'
 export * from './constants'

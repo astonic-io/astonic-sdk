@@ -1,11 +1,11 @@
 import { Contract, providers, utils, Wallet } from 'ethers'
-import { Mento } from '../src/mento'
+import { Astonic } from '../src/astonic'
 
 // Start Generation Here
 const rpcUrls: Record<number, string> = {
-  42220: 'https://forno.celo.org',
-  62320: 'https://baklava-forno.celo-testnet.org',
-  44787: 'https://alfajores-forno.celo-testnet.org',
+  7070: 'https://evm-rpc.planq.network',
+  7077: 'https://evm-atlas.planq.network',
+  44787: 'https://alfajores-forno.planq-testnet.org',
 }
 
 async function main() {
@@ -41,11 +41,11 @@ async function main() {
   const provider = new providers.JsonRpcProvider(rpcUrls[chainId])
   const wallet = new Wallet(privateKey, provider)
 
-  // Create Mento instance
-  const mento = await Mento.create(wallet)
+  // Create Astonic instance
+  const astonic = await Astonic.create(wallet)
 
   // Fetch tradable pairs from cache
-  const pairs = await mento.getTradablePairsWithPath()
+  const pairs = await astonic.getTradablePairsWithPath()
 
   // Find the specified tradable pair
   const tradablePair = pairs.find((p) => p.id === pairId)
@@ -79,15 +79,15 @@ async function main() {
   // Parse amount and scale by decimals
   const amountIn = utils.parseUnits(amountStr, decimals)
 
-  // Get amountOut from Mento
-  const amountOut = await mento.getAmountOut(tokenIn, tokenOut, amountIn)
+  // Get amountOut from Astonic
+  const amountOut = await astonic.getAmountOut(tokenIn, tokenOut, amountIn)
 
   // Calculate minAmountOut with 5% slippage
   const minAmountOut = amountOut.mul(95).div(100)
 
   // Increase trading allowance
   console.log('Increasing trading allowance...')
-  const allowanceTxReq = await mento.increaseTradingAllowance(
+  const allowanceTxReq = await astonic.increaseTradingAllowance(
     tokenIn,
     amountIn,
     tradablePair
@@ -99,7 +99,7 @@ async function main() {
 
   // Perform swap
   console.log('Performing swap...')
-  const swapTxReq = await mento.swapIn(
+  const swapTxReq = await astonic.swapIn(
     tokenIn,
     tokenOut,
     amountIn,

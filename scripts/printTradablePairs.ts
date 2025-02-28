@@ -1,10 +1,10 @@
 import { providers } from 'ethers'
-import { Mento } from '../src/mento'
+import { Astonic } from '../src/astonic'
 
 const rpcUrls: Record<number, string> = {
-  42220: 'https://forno.celo.org',
-  62320: 'https://baklava-forno.celo-testnet.org',
-  44787: 'https://alfajores-forno.celo-testnet.org',
+  7070: 'https://evm-rpc.planq.network',
+  7077: 'https://evm-atlas.planq.network',
+  44787: 'https://alfajores-forno.planq-testnet.org',
 }
 
 async function main() {
@@ -28,8 +28,8 @@ async function main() {
   const rpcUrl = rpcUrls[chainId]
   const provider = new providers.JsonRpcProvider(rpcUrl)
 
-  // Create a Mento instance using the provider
-  const mento = await Mento.create(provider)
+  // Create a Astonic instance using the provider
+  const astonic = await Astonic.create(provider)
 
   // Optional: verify that the provider's network matches the requested chain id.
   const network = await provider.getNetwork()
@@ -40,7 +40,7 @@ async function main() {
   }
 
   // Fetch cached tradable pairs
-  const pairs = await mento.getTradablePairsWithPath()
+  const pairs = await astonic.getTradablePairsWithPath()
 
   console.log(`Tradable pairs for chain ${chainId}:\n`)
   for (const pair of pairs) {

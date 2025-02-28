@@ -1,15 +1,15 @@
 import {
   BiPoolManager__factory,
-  IBreakerBox__factory,
-  IBroker__factory,
-  IExchangeProvider__factory,
-} from '@mento-protocol/mento-core-ts'
+  IBreakerBox0828__factory,
+  IBroker0828__factory,
+  IExchangeProvider0828__factory,
+} from '@astonic-io/astonic-bindings-ts'
 import { Contract, Wallet, constants, ethers, providers, utils } from 'ethers'
 
-import { IMentoRouter__factory } from 'mento-router-ts'
-import { Mento, TradablePair } from './mento'
+import { IAstonicRouter__factory } from '@astonic-io/astonic-router-ts'
+import { Astonic, TradablePair } from './astonic'
 
-jest.mock('@mento-protocol/mento-core-ts', () => {
+jest.mock('@astonic-io/astonic-bindings-ts', () => {
   return {
     IBroker__factory: {
       connect: jest.fn(),
@@ -26,9 +26,9 @@ jest.mock('@mento-protocol/mento-core-ts', () => {
     },
   }
 })
-jest.mock('mento-router-ts', () => {
+jest.mock('@astonic-io/astonic-router-ts', () => {
   return {
-    IMentoRouter__factory: {
+    IAstonicRouter__factory: {
       connect: jest.fn(),
     },
   }
@@ -44,40 +44,40 @@ jest.mock('ethers', () => {
   }
 })
 
-describe('Mento', () => {
+describe('Astonic', () => {
   const oneInWei = utils.parseUnits('1', 18)
   const twoInWei = utils.parseUnits('2', 18)
 
   // fake tokens and symbols
-  const fakecUSDTokenAddr = 'cUSDTokenAddr'
-  const fakecEURTokenAddr = 'cEURTokenAddr'
-  const fakecBRLTokenAddr = 'cBRLTokenAddr'
-  const fakeCeloTokenAddr = 'celoTokenAddr'
+  const fakeaUSDTokenAddr = 'aUSDTokenAddr'
+  const fakeaEURTokenAddr = 'aEURTokenAddr'
+  const fakeaBRLTokenAddr = 'aBRLTokenAddr'
+  const fakePlanqTokenAddr = 'planqTokenAddr'
   const fakeSymbolsByTokenAddr: Record<string, string> = {
-    [fakecUSDTokenAddr]: 'cUSD',
-    [fakecEURTokenAddr]: 'cEUR',
-    [fakecBRLTokenAddr]: 'cBRL',
-    [fakeCeloTokenAddr]: 'CELO',
+    [fakeaUSDTokenAddr]: 'aUSD',
+    [fakeaEURTokenAddr]: 'aEUR',
+    [fakeaBRLTokenAddr]: 'aBRL',
+    [fakePlanqTokenAddr]: 'PLQ',
   }
 
   // fake exchange providers and exchanges
   const fakeUsdAndEurExchangeProvider = 'ExchangeProvider0'
   const fakeBrlExchangeProvider = 'ExchangeProvider1'
-  const fakeCeloUSDExchange = {
-    exchangeId: 'ExchangeCeloCUSDAddr',
-    assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+  const fakePlanqUSDExchange = {
+    exchangeId: 'ExchangePlanqAUSDAddr',
+    assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
   }
-  const fakeCeloEURExchange = {
-    exchangeId: 'ExchangeCeloCEURAddr',
-    assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+  const fakePlanqEURExchange = {
+    exchangeId: 'ExchangePlanqAEURAddr',
+    assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
   }
-  const fakeCeloBRLExchange = {
-    exchangeId: 'ExchangeCeloCBRLAddr',
-    assets: [fakecBRLTokenAddr, fakeCeloTokenAddr],
+  const fakePlanqBRLExchange = {
+    exchangeId: 'ExchangePlanqABRLAddr',
+    assets: [fakeaBRLTokenAddr, fakePlanqTokenAddr],
   }
   const fakeExchangesByProviders = {
-    [fakeUsdAndEurExchangeProvider]: [fakeCeloUSDExchange, fakeCeloEURExchange],
-    [fakeBrlExchangeProvider]: [fakeCeloBRLExchange],
+    [fakeUsdAndEurExchangeProvider]: [fakePlanqUSDExchange, fakePlanqEURExchange],
+    [fakeBrlExchangeProvider]: [fakePlanqBRLExchange],
     ExchangeProvider2: [],
   }
   const nOfFakeDirectExchanges = Object.values(fakeExchangesByProviders).reduce(
@@ -130,7 +130,7 @@ describe('Mento', () => {
   // @ts-ignore
   IBroker__factory.connect.mockReturnValue(mockBroker)
   // @ts-ignore
-  IMentoRouter__factory.connect.mockReturnValue(mockRouter)
+  IAstonicRouter__factory.connect.mockReturnValue(mockRouter)
   // @ts-ignore
   IExchangeProvider__factory.connect = jest.fn((exchangeProvider: string) => {
     return {
@@ -146,13 +146,13 @@ describe('Mento', () => {
   IBreakerBox__factory.connect.mockReturnValue(mockBreakerBox)
 
   // ========== Mock ethers contracts ==========
-  const celoRegistryAddress = '0x000000000000000000000000000000000000ce10'
+  const planqRegistryAddress = '0x000000000000000000000000000000000000ce10'
   const fakeRegistryContract = {
     getAddressForString: jest.fn(() => fakeBrokerAddr),
   }
   const increaseAllowanceFn = jest.fn()
   const mockContractModule = jest.fn((contractAddr: string) => {
-    const isRegistryContract = contractAddr === celoRegistryAddress
+    const isRegistryContract = contractAddr === planqRegistryAddress
     const isErc20Contract = Object.keys(fakeSymbolsByTokenAddr).includes(
       contractAddr
     )
@@ -187,7 +187,7 @@ describe('Mento', () => {
     provider = new providers.JsonRpcProvider()
     provider.getNetwork = jest
       .fn()
-      .mockResolvedValue({ chainId: 42220, name: 'celo' })
+      .mockResolvedValue({ chainId: 7070, name: 'planq' })
     signer = new Wallet(pk, provider)
     signerWithoutProvider = new Wallet(pk)
   })
@@ -197,36 +197,36 @@ describe('Mento', () => {
   })
 
   describe('create', () => {
-    it('should return a Mento instance with the registry broker address and a router object', async () => {
-      const testee = await Mento.create(provider)
+    it('should return a Astonic instance with the registry broker address and a router object', async () => {
+      const testee = await Astonic.create(provider)
       expect(testee).toBeDefined()
       expect(fakeRegistryContract.getAddressForString).toHaveBeenCalledTimes(1)
       expect(mockContractModule).toHaveBeenCalledTimes(1)
-      expect(mockContractModule.mock.lastCall![0]).toBe(celoRegistryAddress)
+      expect(mockContractModule.mock.lastCall![0]).toBe(planqRegistryAddress)
 
-      const testee2 = await Mento.create(signer)
+      const testee2 = await Astonic.create(signer)
       expect(testee2).toBeDefined()
       expect(fakeRegistryContract.getAddressForString).toHaveBeenCalledTimes(2)
       expect(mockContractModule).toHaveBeenCalledTimes(2)
-      expect(mockContractModule.mock.lastCall![0]).toBe(celoRegistryAddress)
+      expect(mockContractModule.mock.lastCall![0]).toBe(planqRegistryAddress)
     })
     it('should throw if the signer has no provider', async () => {
-      await expect(Mento.create(signerWithoutProvider)).rejects.toThrow(
+      await expect(Astonic.create(signerWithoutProvider)).rejects.toThrow(
         'Signer must be connected to a provider'
       )
     })
 
     it('should throw if no signer or provider is provided', async () => {
       // @ts-ignore
-      await expect(Mento.create()).rejects.toThrow(
+      await expect(Astonic.create()).rejects.toThrow(
         'A valid signer or provider must be provided'
       )
     })
   })
 
   describe('createWithParams', () => {
-    it('should return a Mento instance without querying the registry and include a router object', () => {
-      const testee = Mento.createWithParams(
+    it('should return a Astonic instance without querying the registry and include a router object', () => {
+      const testee = Astonic.createWithParams(
         provider,
         fakeBrokerAddr,
         fakeRouterAddr
@@ -235,7 +235,7 @@ describe('Mento', () => {
       expect(mockContractModule).toHaveBeenCalledTimes(0)
       expect(fakeRegistryContract.getAddressForString).toHaveBeenCalledTimes(0)
 
-      const testee2 = Mento.createWithParams(
+      const testee2 = Astonic.createWithParams(
         signer,
         fakeBrokerAddr,
         fakeRouterAddr
@@ -247,7 +247,7 @@ describe('Mento', () => {
 
     it('should throw if the signer has no provider', () => {
       expect(() =>
-        Mento.createWithParams(
+        Astonic.createWithParams(
           signerWithoutProvider,
           fakeBrokerAddr,
           fakeRouterAddr
@@ -257,7 +257,7 @@ describe('Mento', () => {
 
     it('should throw if no signer or provider is provided', () => {
       //@ts-ignore
-      expect(() => Mento.createWithParams(fakeBrokerAddr)).toThrow(
+      expect(() => Astonic.createWithParams(fakeBrokerAddr)).toThrow(
         'A valid signer or provider must be provided'
       )
     })
@@ -265,7 +265,7 @@ describe('Mento', () => {
 
   describe('getTradeablePairsWithPath', () => {
     it('should return an array of pairs including direct and routed (one-hop) pairs', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
 
       const pairs = await testee.getTradablePairsWithPath({ cached: false })
       // Check direct pairs (length 2)
@@ -313,29 +313,29 @@ describe('Mento', () => {
       // Check that at least one routed (one-hop) pair is included (length > 2)
       const routedPairs = pairs.filter((p: TradablePair) => p.path.length == 2)
       expect(routedPairs.length).toBeGreaterThan(0)
-      // For example, expect cUSD -> cEUR via CELO to be present
+      // For example, expect aUSD -> aEUR via PLQ to be present
       expect(pairs).toContainEqual({
-        id: 'cEUR-cUSD',
+        id: 'aEUR-aUSD',
         assets: [
           {
-            address: fakecEURTokenAddr,
-            symbol: 'cEUR',
+            address: fakeaEURTokenAddr,
+            symbol: 'aEUR',
           },
           {
-            address: fakecUSDTokenAddr,
-            symbol: 'cUSD',
+            address: fakeaUSDTokenAddr,
+            symbol: 'aUSD',
           },
         ],
         path: [
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloUSDExchange.exchangeId,
-            assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqUSDExchange.exchangeId,
+            assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
           },
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloEURExchange.exchangeId,
-            assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqEURExchange.exchangeId,
+            assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
           },
         ],
       })
@@ -344,7 +344,7 @@ describe('Mento', () => {
 
   describe('getAmountIn', () => {
     it('should call broker.getAmountIn with the right parameters for a direct swap', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
 
       for (const [mockedProvider, mockedExchanges] of Object.entries(
         fakeExchangesByProviders
@@ -388,29 +388,29 @@ describe('Mento', () => {
     })
 
     it('should call router.getAmountIn with the right parameters for a routed swap', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
       const routedPair: TradablePair = {
-        id: 'cEUR-cUSD',
+        id: 'aEUR-aUSD',
         assets: [
           {
-            address: fakecEURTokenAddr,
-            symbol: 'cEUR',
+            address: fakeaEURTokenAddr,
+            symbol: 'aEUR',
           },
           {
-            address: fakecUSDTokenAddr,
-            symbol: 'cUSD',
+            address: fakeaUSDTokenAddr,
+            symbol: 'aUSD',
           },
         ],
         path: [
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloUSDExchange.exchangeId,
-            assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqUSDExchange.exchangeId,
+            assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
           },
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloEURExchange.exchangeId,
-            assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqEURExchange.exchangeId,
+            assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
           },
         ],
       }
@@ -418,8 +418,8 @@ describe('Mento', () => {
       mockRouter.getAmountIn.mockResolvedValue('routedAmountIn')
 
       const result = await testee.getAmountIn(
-        fakecUSDTokenAddr,
-        fakecEURTokenAddr,
+        fakeaUSDTokenAddr,
+        fakeaEURTokenAddr,
         oneInWei,
         routedPair
       )
@@ -427,15 +427,15 @@ describe('Mento', () => {
       expect(mockRouter.getAmountIn).toHaveBeenCalledWith(oneInWei, [
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloUSDExchange.exchangeId,
-          assetIn: fakecUSDTokenAddr,
-          assetOut: fakeCeloTokenAddr,
+          exchangeId: fakePlanqUSDExchange.exchangeId,
+          assetIn: fakeaUSDTokenAddr,
+          assetOut: fakePlanqTokenAddr,
         },
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloEURExchange.exchangeId,
-          assetIn: fakeCeloTokenAddr,
-          assetOut: fakecEURTokenAddr,
+          exchangeId: fakePlanqEURExchange.exchangeId,
+          assetIn: fakePlanqTokenAddr,
+          assetOut: fakeaEURTokenAddr,
         },
       ])
       expect(result).toBe('routedAmountIn')
@@ -444,7 +444,7 @@ describe('Mento', () => {
 
   describe('getAmountOut', () => {
     it('should call broker.getAmountOut with the right parameters for a direct swap', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
 
       for (const [mockedProvider, mockedExchanges] of Object.entries(
         fakeExchangesByProviders
@@ -489,29 +489,29 @@ describe('Mento', () => {
     })
 
     it('should call router.getAmountOut with the right parameters for a routed swap', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
       const routedPair: TradablePair = {
-        id: 'cEUR-cUSD',
+        id: 'aEUR-aUSD',
         assets: [
           {
-            address: fakecEURTokenAddr,
-            symbol: 'cEUR',
+            address: fakeaEURTokenAddr,
+            symbol: 'aEUR',
           },
           {
-            address: fakecUSDTokenAddr,
-            symbol: 'cUSD',
+            address: fakeaUSDTokenAddr,
+            symbol: 'aUSD',
           },
         ],
         path: [
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloEURExchange.exchangeId,
-            assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqEURExchange.exchangeId,
+            assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
           },
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloUSDExchange.exchangeId,
-            assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqUSDExchange.exchangeId,
+            assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
           },
         ],
       }
@@ -519,8 +519,8 @@ describe('Mento', () => {
       mockRouter.getAmountOut.mockResolvedValue('routedAmountOut')
 
       const result = await testee.getAmountOut(
-        fakecEURTokenAddr,
-        fakecUSDTokenAddr,
+        fakeaEURTokenAddr,
+        fakeaUSDTokenAddr,
         oneInWei,
         routedPair
       )
@@ -528,15 +528,15 @@ describe('Mento', () => {
       expect(mockRouter.getAmountOut).toHaveBeenCalledWith(oneInWei, [
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloEURExchange.exchangeId,
-          assetIn: fakecEURTokenAddr,
-          assetOut: fakeCeloTokenAddr,
+          exchangeId: fakePlanqEURExchange.exchangeId,
+          assetIn: fakeaEURTokenAddr,
+          assetOut: fakePlanqTokenAddr,
         },
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloUSDExchange.exchangeId,
-          assetIn: fakeCeloTokenAddr,
-          assetOut: fakecUSDTokenAddr,
+          exchangeId: fakePlanqUSDExchange.exchangeId,
+          assetIn: fakePlanqTokenAddr,
+          assetOut: fakeaUSDTokenAddr,
         },
       ])
       expect(result).toBe('routedAmountOut')
@@ -545,26 +545,26 @@ describe('Mento', () => {
 
   describe('increaseTradingAllowance', () => {
     it('should return a populated increaseAllowance tx object for a direct pair', async () => {
-      const testee = await Mento.create(signer)
-      const token = fakeCeloBRLExchange.assets[0]
+      const testee = await Astonic.create(signer)
+      const token = fakePlanqBRLExchange.assets[0]
       const amount = twoInWei
       const directPair: TradablePair = {
-        id: 'CELO-cBRL',
+        id: 'PLQ-aBRL',
         assets: [
           {
-            address: fakeCeloTokenAddr,
-            symbol: 'CELO',
+            address: fakePlanqTokenAddr,
+            symbol: 'PLQ',
           },
           {
-            address: fakecBRLTokenAddr,
-            symbol: 'cBRL',
+            address: fakeaBRLTokenAddr,
+            symbol: 'aBRL',
           },
         ],
         path: [
           {
             providerAddr: fakeBrlExchangeProvider,
-            id: fakeCeloBRLExchange.exchangeId,
-            assets: [fakeCeloTokenAddr, fakecBRLTokenAddr],
+            id: fakePlanqBRLExchange.exchangeId,
+            assets: [fakePlanqTokenAddr, fakeaBRLTokenAddr],
           },
         ],
       }
@@ -597,31 +597,31 @@ describe('Mento', () => {
     })
 
     it('should return a populated increaseAllowance tx object for a routed pair', async () => {
-      const testee = await Mento.create(signer)
-      const token = fakecUSDTokenAddr
+      const testee = await Astonic.create(signer)
+      const token = fakeaUSDTokenAddr
       const amount = twoInWei
       const routedPair: TradablePair = {
-        id: 'cEUR-cUSD',
+        id: 'aEUR-aUSD',
         assets: [
           {
-            address: fakecEURTokenAddr,
-            symbol: 'cEUR',
+            address: fakeaEURTokenAddr,
+            symbol: 'aEUR',
           },
           {
-            address: fakecUSDTokenAddr,
-            symbol: 'cUSD',
+            address: fakeaUSDTokenAddr,
+            symbol: 'aUSD',
           },
         ],
         path: [
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloUSDExchange.exchangeId,
-            assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqUSDExchange.exchangeId,
+            assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
           },
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloEURExchange.exchangeId,
-            assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqEURExchange.exchangeId,
+            assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
           },
         ],
       }
@@ -656,7 +656,7 @@ describe('Mento', () => {
 
   describe('swapIn', () => {
     it('should call broker.swapIn with the right parameters for a direct swap', async () => {
-      const testee = await Mento.create(signer)
+      const testee = await Astonic.create(signer)
 
       for (const [mockedProvider, mockedExchanges] of Object.entries(
         fakeExchangesByProviders
@@ -726,29 +726,29 @@ describe('Mento', () => {
     })
 
     it('should call router.swapIn with the right parameters for a routed swap', async () => {
-      const testee = await Mento.create(signer)
+      const testee = await Astonic.create(signer)
       const routedPair: TradablePair = {
-        id: 'cEUR-cUSD',
+        id: 'aEUR-aUSD',
         assets: [
           {
-            address: fakecEURTokenAddr,
-            symbol: 'cEUR',
+            address: fakeaEURTokenAddr,
+            symbol: 'aEUR',
           },
           {
-            address: fakecUSDTokenAddr,
-            symbol: 'cUSD',
+            address: fakeaUSDTokenAddr,
+            symbol: 'aUSD',
           },
         ],
         path: [
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloUSDExchange.exchangeId,
-            assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqUSDExchange.exchangeId,
+            assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
           },
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloEURExchange.exchangeId,
-            assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqEURExchange.exchangeId,
+            assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
           },
         ],
       }
@@ -770,8 +770,8 @@ describe('Mento', () => {
         .mockReturnValueOnce(fakePopulatedTxObj)
 
       const result = await testee.swapIn(
-        fakecUSDTokenAddr,
-        fakecEURTokenAddr,
+        fakeaUSDTokenAddr,
+        fakeaEURTokenAddr,
         oneInWei,
         twoInWei,
         routedPair
@@ -782,15 +782,15 @@ describe('Mento', () => {
       ).toHaveBeenCalledWith(oneInWei, twoInWei, [
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloUSDExchange.exchangeId,
-          assetIn: fakecUSDTokenAddr,
-          assetOut: fakeCeloTokenAddr,
+          exchangeId: fakePlanqUSDExchange.exchangeId,
+          assetIn: fakeaUSDTokenAddr,
+          assetOut: fakePlanqTokenAddr,
         },
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloEURExchange.exchangeId,
-          assetIn: fakeCeloTokenAddr,
-          assetOut: fakecEURTokenAddr,
+          exchangeId: fakePlanqEURExchange.exchangeId,
+          assetIn: fakePlanqTokenAddr,
+          assetOut: fakeaEURTokenAddr,
         },
       ])
       expect(result).toBe(fakePopulatedTxObj)
@@ -799,7 +799,7 @@ describe('Mento', () => {
 
   describe('swapOut', () => {
     it('should call broker.swapOut with the right parameters for a direct swap', async () => {
-      const testee = await Mento.create(signer)
+      const testee = await Astonic.create(signer)
 
       for (const [mockedProvider, mockedExchanges] of Object.entries(
         fakeExchangesByProviders
@@ -866,29 +866,29 @@ describe('Mento', () => {
     })
 
     it('should call router.swapOut with the right parameters for a routed swap', async () => {
-      const testee = await Mento.create(signer)
+      const testee = await Astonic.create(signer)
       const routedPair: TradablePair = {
-        id: 'cUSD-cEUR',
+        id: 'aUSD-aEUR',
         assets: [
           {
-            address: fakecUSDTokenAddr,
-            symbol: fakeSymbolsByTokenAddr[fakecUSDTokenAddr],
+            address: fakeaUSDTokenAddr,
+            symbol: fakeSymbolsByTokenAddr[fakeaUSDTokenAddr],
           },
           {
-            address: fakecEURTokenAddr,
-            symbol: fakeSymbolsByTokenAddr[fakecEURTokenAddr],
+            address: fakeaEURTokenAddr,
+            symbol: fakeSymbolsByTokenAddr[fakeaEURTokenAddr],
           },
         ],
         path: [
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloUSDExchange.exchangeId,
-            assets: [fakecUSDTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqUSDExchange.exchangeId,
+            assets: [fakeaUSDTokenAddr, fakePlanqTokenAddr],
           },
           {
             providerAddr: fakeUsdAndEurExchangeProvider,
-            id: fakeCeloEURExchange.exchangeId,
-            assets: [fakecEURTokenAddr, fakeCeloTokenAddr],
+            id: fakePlanqEURExchange.exchangeId,
+            assets: [fakeaEURTokenAddr, fakePlanqTokenAddr],
           },
         ],
       }
@@ -910,8 +910,8 @@ describe('Mento', () => {
         .mockReturnValueOnce(fakePopulatedTxObj)
 
       const result = await testee.swapOut(
-        fakecUSDTokenAddr,
-        fakecEURTokenAddr,
+        fakeaUSDTokenAddr,
+        fakeaEURTokenAddr,
         oneInWei,
         twoInWei,
         routedPair
@@ -922,15 +922,15 @@ describe('Mento', () => {
       ).toHaveBeenCalledWith(oneInWei, twoInWei, [
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloUSDExchange.exchangeId,
-          assetIn: fakecUSDTokenAddr,
-          assetOut: fakeCeloTokenAddr,
+          exchangeId: fakePlanqUSDExchange.exchangeId,
+          assetIn: fakeaUSDTokenAddr,
+          assetOut: fakePlanqTokenAddr,
         },
         {
           exchangeProvider: fakeUsdAndEurExchangeProvider,
-          exchangeId: fakeCeloEURExchange.exchangeId,
-          assetIn: fakeCeloTokenAddr,
-          assetOut: fakecEURTokenAddr,
+          exchangeId: fakePlanqEURExchange.exchangeId,
+          assetIn: fakePlanqTokenAddr,
+          assetOut: fakeaEURTokenAddr,
         },
       ])
       expect(result).toBe(fakePopulatedTxObj)
@@ -939,20 +939,20 @@ describe('Mento', () => {
 
   describe('getExchangeById', () => {
     it('should return the exchange with the given id', async () => {
-      const testee = await Mento.create(provider)
-      const celoUSDExchange = await testee.getExchangeById(
-        fakeCeloUSDExchange.exchangeId
+      const testee = await Astonic.create(provider)
+      const planqUSDExchange = await testee.getExchangeById(
+        fakePlanqUSDExchange.exchangeId
       )
-      const celoEURExchange = await testee.getExchangeById(
-        fakeCeloEURExchange.exchangeId
+      const planqEURExchange = await testee.getExchangeById(
+        fakePlanqEURExchange.exchangeId
       )
 
-      expect(celoUSDExchange.id).toEqual(fakeCeloUSDExchange.exchangeId)
-      expect(celoEURExchange.id).toEqual(fakeCeloEURExchange.exchangeId)
+      expect(planqUSDExchange.id).toEqual(fakePlanqUSDExchange.exchangeId)
+      expect(planqEURExchange.id).toEqual(fakePlanqEURExchange.exchangeId)
     })
 
     it('should throw if no exchange is found for the given id', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
       await expect(
         testee.getExchangeById('nonExistentExchangeId')
       ).rejects.toThrow()
@@ -961,19 +961,19 @@ describe('Mento', () => {
 
   describe('isTradingEnabled', () => {
     it('should return true if the trading mode is 0', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
 
       mockBreakerBox.getRateFeedTradingMode.mockReturnValueOnce(constants.Zero)
       expect(
-        await testee.isTradingEnabled(fakeCeloUSDExchange.exchangeId)
+        await testee.isTradingEnabled(fakePlanqUSDExchange.exchangeId)
       ).toBe(true)
     })
     it('should return false if the trading mode is not 0', async () => {
-      const testee = await Mento.create(provider)
+      const testee = await Astonic.create(provider)
 
       mockBreakerBox.getRateFeedTradingMode.mockReturnValueOnce(constants.One)
       expect(
-        await testee.isTradingEnabled(fakeCeloUSDExchange.exchangeId)
+        await testee.isTradingEnabled(fakePlanqUSDExchange.exchangeId)
       ).toBe(false)
     })
   })

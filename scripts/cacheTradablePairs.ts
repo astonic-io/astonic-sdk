@@ -1,20 +1,20 @@
 const rpcUrls = {
-  42220: 'https://forno.celo.org',
-  62320: 'https://baklava-forno.celo-testnet.org',
-  44787: 'https://alfajores-forno.celo-testnet.org',
+  7070: 'https://evm-rpc.planq.network',
+  7077: 'https://evm-atlas.planq.network',
+  44787: 'https://alfajores-forno.planq-testnet.org',
 }
 
 import { providers } from 'ethers'
 import fs from 'fs'
 import path from 'path'
-import { Mento } from '../src/mento'
+import { Astonic } from '../src/astonic'
 
 async function getTradablePairsForNetwork(rpcUrl: string) {
   const provider = new providers.JsonRpcProvider(rpcUrl)
-  const mento = await Mento.create(provider)
+  const astonic = await Astonic.create(provider)
 
   // We want to fetch the pairs from the network, not from the cache.
-  return await mento.getTradablePairsWithPath({ cached: false })
+  return await astonic.getTradablePairsWithPath({ cached: false })
 }
 
 async function main() {
@@ -32,7 +32,7 @@ async function main() {
 
   // Generate TypeScript file content
   const fileContent = `// THIS FILE IS AUTO-GENERATED. DO NOT EDIT DIRECTLY.
-import { TradablePair } from '../mento'
+import { TradablePair } from '../astonic'
 
 export const TRADABLE_PAIRS: Record<number, TradablePair[]> = ${JSON.stringify(
     results,
