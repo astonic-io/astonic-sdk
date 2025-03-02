@@ -8,7 +8,7 @@ export const addresses: ContractAddressMap = {
     Emission: '0xc3b728e2a02d3dc894a221635ecf86b578df0a9c',
     AstonicGovernor: '0x0dC26dB9379BDE55fCC534941FCD11D0acCB0Ff2',
     AstonicToken: '0x8f4d86aba1b47832c46f11e0ffd0f7ada4498345',
-    TimelockController: '',
+    TimelockController: '0x38d7c27a7ff2cd9b096059d427d53e6aec9bbec0',
     Locking: '0xfe0f9a17afe240b0b08ca953fbefa6f6053c6fac',
     AstonicRouter: '',
     Broker: '',
