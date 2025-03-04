@@ -146,7 +146,7 @@ describe('Astonic', () => {
   IBreakerBox__factory.connect.mockReturnValue(mockBreakerBox)
 
   // ========== Mock ethers contracts ==========
-  const planqRegistryAddress = '0x000000000000000000000000000000000000ce10'
+  const planqRegistryAddress = '0x9DabFe01de024C681320eb80FBc64EccEaa58ca2'
   const fakeRegistryContract = {
     getAddressForString: jest.fn(() => fakeBrokerAddr),
   }

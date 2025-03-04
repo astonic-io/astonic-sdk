@@ -59,7 +59,7 @@ export function validateSignerOrProvider(
 export async function getBrokerAddressFromRegistry(
   signerOrProvider: Signer | providers.Provider
 ): Promise<Address> {
-  const planqRegistryAddress = '0x000000000000000000000000000000000000ce10'
+  const planqRegistryAddress = '0x9DabFe01de024C681320eb80FBc64EccEaa58ca2'
   const brokerIdentifier = 'Broker'
 
   const registryAbi = [
