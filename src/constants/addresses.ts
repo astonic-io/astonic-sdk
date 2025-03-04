@@ -3,7 +3,7 @@ import { ContractAddressMap } from '../types'
 
 export const addresses: ContractAddressMap = {
   [ChainId.PLQ]: {
-    GovernanceFactory: '',
+    GovernanceFactory: '0x32125b490626231ad9fF9245B23E8345Fb485377',
     Airgrab: '0x85e0e288017249da9d7a5778f945ce2c0f28d4ee',
     Emission: '0xc3b728e2a02d3dc894a221635ecf86b578df0a9c',
     AstonicGovernor: '0x0dC26dB9379BDE55fCC534941FCD11D0acCB0Ff2',
@@ -23,7 +23,7 @@ export const addresses: ContractAddressMap = {
     StableTokenEUR: '',
     StableTokenBRL: '',
     StableTokenXOF: '',
-    SortedOracles: '',
+    SortedOracles: '0x7741303a07B15400F53f3459c1C0D62bCC257A39',
   },
   [ChainId.ALFAJORES]: {
     GovernanceFactory: '0x96Fe03DBFEc1EB419885a01d2335bE7c1a45e33b',
