@@ -4,8 +4,6 @@ import { Astonic } from '../src/astonic'
 // Start Generation Here
 const rpcUrls: Record<number, string> = {
   7070: 'https://evm-rpc.planq.network',
-  7077: 'https://evm-atlas.planq.network',
-  44787: 'https://alfajores-forno.planq-testnet.org',
 }
 
 async function main() {
