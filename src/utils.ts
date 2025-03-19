@@ -1,5 +1,5 @@
 import { BigNumberish, constants, Contract, providers, Signer } from 'ethers'
-
+import WETH_ABI from './abis/weth.json'
 import { Address } from './interfaces'
 
 /**
@@ -117,4 +117,40 @@ export async function increaseAllowance(
   const contract = new Contract(tokenAddr, abi, signerOrProvider)
 
   return await contract.populateTransaction.increaseAllowance(spender, amount)
+}
+
+/**
+ * Returns a populated tx obj for increasing the allowance of a spender for a given erc20 token by a given amount
+ * @param tokenAddr the address of the erc20 token
+ * @param spender the address of the spender
+ * @param amount the amount to increase the allowance by
+ * @param signerOrProvider an ethers signer or provider
+ * @returns the populated TransactionRequest object
+ */
+export async function wrap(
+  tokenAddr: string,
+  amount: BigNumberish,
+  signerOrProvider: Signer | providers.Provider
+): Promise<providers.TransactionRequest> {
+  const contract = new Contract(tokenAddr, WETH_ABI, signerOrProvider)
+
+  return await contract.populateTransaction.deposit({ value: amount })
+}
+
+/**
+ * Returns a populated tx obj for increasing the allowance of a spender for a given erc20 token by a given amount
+ * @param tokenAddr the address of the erc20 token
+ * @param spender the address of the spender
+ * @param amount the amount to increase the allowance by
+ * @param signerOrProvider an ethers signer or provider
+ * @returns the populated TransactionRequest object
+ */
+export async function unwrap(
+  tokenAddr: string,
+  amount: BigNumberish,
+  signerOrProvider: Signer | providers.Provider
+): Promise<providers.TransactionRequest> {
+  const contract = new Contract(tokenAddr, WETH_ABI, signerOrProvider)
+
+  return await contract.populateTransaction.withdraw(amount)
 }

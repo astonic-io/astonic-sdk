@@ -22,6 +22,8 @@ import {
   increaseAllowance,
   validateSigner,
   validateSignerOrProvider,
+  wrap,
+  unwrap,
 } from './utils'
 
 import { strict as assert } from 'assert'
@@ -420,6 +422,54 @@ export class Astonic {
     const tx = await increaseAllowance(
       tokenIn,
       spender,
+      amount,
+      this.signerOrProvider
+    )
+
+    if (Signer.isSigner(this.signerOrProvider)) {
+      // The contract call doesn't populate all of the signer fields, so we need an extra call for the signer
+      return this.signerOrProvider.populateTransaction(tx)
+    } else {
+      return tx
+    }
+  }
+
+  /**
+   * Increases the broker's trading allowance for the given token
+   * @param token the token to increase the allowance for
+   * @param amount the amount to increase the allowance by
+   * @returns the populated TransactionRequest object
+   */
+  async wrapToken(
+    tokenIn: Address,
+    amount: BigNumberish,
+  ): Promise<providers.TransactionRequest> {
+    const tx = await wrap(
+      tokenIn,
+      amount,
+      this.signerOrProvider
+    )
+
+    if (Signer.isSigner(this.signerOrProvider)) {
+      // The contract call doesn't populate all of the signer fields, so we need an extra call for the signer
+      return this.signerOrProvider.populateTransaction(tx)
+    } else {
+      return tx
+    }
+  }
+
+  /**
+   * Increases the broker's trading allowance for the given token
+   * @param token the token to increase the allowance for
+   * @param amount the amount to increase the allowance by
+   * @returns the populated TransactionRequest object
+   */
+  async unwrapToken(
+    tokenIn: Address,
+    amount: BigNumberish,
+  ): Promise<providers.TransactionRequest> {
+    const tx = await unwrap(
+      tokenIn,
       amount,
       this.signerOrProvider
     )

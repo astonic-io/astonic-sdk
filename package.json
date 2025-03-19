@@ -1,7 +1,7 @@
 {
   "name": "@astonic-io/astonic-sdk",
   "description": "Official SDK for interacting with the Astonic Protocol",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "author": "astonic-io",
   "keywords": [
