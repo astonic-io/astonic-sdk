@@ -110,13 +110,13 @@ export async function increaseAllowance(
   signerOrProvider: Signer | providers.Provider
 ): Promise<providers.TransactionRequest> {
   const abi = [
-    'function increaseAllowance(address spender, uint256 value) external returns (bool)',
+    'function approve(address spender, uint256 value) external returns (bool)',
   ]
   // TODO, not all ERC-20 contracts support increaseAllowance
   // Add a check for that here
   const contract = new Contract(tokenAddr, abi, signerOrProvider)
 
-  return await contract.populateTransaction.increaseAllowance(spender, amount)
+  return await contract.populateTransaction.approve(spender, amount)
 }
 
 /**
